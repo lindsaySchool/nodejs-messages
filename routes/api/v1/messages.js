@@ -3,7 +3,7 @@ const express = require('express');
 // create a new Router
 const router = express.Router();
 
-// GET /api/v1/messages
+/* // GET /api/v1/messages
 router.get("/", (req, res) => {
     //iets teruggeven
     res.json({
@@ -17,10 +17,14 @@ router.get("/", (req, res) => {
             {
                 user: "Ben",
                 message: "Hello, I'm Ben!"
+            },
+            {
+                user: "pikachu",
+                message: "Pika pika!"
             }
         ]
     });
-});
+}); */
 // GET /api/v1/messages/1
 router.get("/:id", (req, res) => {
     let id = req.params.id;
@@ -76,6 +80,8 @@ router.get("/", (req, res) => {
         status: "success",
         message: `GETTING messages for user ${user}`,
     });
+        
 });
+
 
 module.exports = router;
