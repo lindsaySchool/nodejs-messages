@@ -3,7 +3,7 @@ const express = require('express');
 // create a new Router
 const router = express.Router();
 
-/* // GET /api/v1/messages
+// GET /api/v1/messages
 router.get("/", (req, res) => {
     //iets teruggeven
     res.json({
@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
             }
         ]
     });
-}); */
+});
 // GET /api/v1/messages/1
 router.get("/:id", (req, res) => {
     let id = req.params.id;
