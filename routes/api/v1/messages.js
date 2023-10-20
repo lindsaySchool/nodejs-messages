@@ -68,5 +68,14 @@ router.delete("/:id", (req, res) => {
         message: `DELETING a message with id ${id}`,
     });
 });
+// GET /api/v1/messages?user=username
+router.get("/", (req, res) => {
+    let user = req.query.user;
+    //iets teruggeven
+    res.json({
+        status: "success",
+        message: `GETTING messages for user ${user}`,
+    });
+});
 
 module.exports = router;
