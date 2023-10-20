@@ -5,25 +5,34 @@ const router = express.Router();
 
 // GET /api/v1/messages
 router.get("/", (req, res) => {
+    let user = req.query.user;
     //iets teruggeven
+    if(user){
+    //// GET /api/v1/messages?user=username
     res.json({
         status: "success",
-        message: "GETTING messages",
-        data: [
-            {
-                user: "Ann",
-                message: "Hello, I'm Ann!"
-            },
-            {
-                user: "Ben",
-                message: "Hello, I'm Ben!"
-            },
-            {
-                user: "pikachu",
-                message: "Pika pika!"
-            }
-        ]
+        message: `GETTING messages for user ${user}`,
     });
+    }else{
+        res.json({
+            status: "success",
+            message: "GETTING messages",
+            data: [
+                {
+                    user: "Ann",
+                    message: "Hello, I'm Ann!"
+                },
+                {
+                    user: "Ben",
+                    message: "Hello, I'm Ben!"
+                },
+                {
+                    user: "pikachu",
+                    message: "Pika pika!"
+                }
+            ]
+        });
+    }  
 });
 // GET /api/v1/messages/1
 router.get("/:id", (req, res) => {
@@ -72,16 +81,5 @@ router.delete("/:id", (req, res) => {
         message: `DELETING a message with id ${id}`,
     });
 });
-// GET /api/v1/messages?user=username
-router.get("/", (req, res) => {
-    let user = req.query.user;
-    //iets teruggeven
-    res.json({
-        status: "success",
-        message: `GETTING messages for user ${user}`,
-    });
-        
-});
-
 
 module.exports = router;
